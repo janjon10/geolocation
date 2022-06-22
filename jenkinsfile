@@ -1,5 +1,5 @@
 pipeline {
-       triggers {
+    triggers {
   pollSCM '* * * * *'
     }
     agent any
@@ -14,16 +14,15 @@ pipeline {
                 sh 'mvn clean'
                 sh 'mvn install'
                 sh 'mvn package'
-                
             }
         }
-        stage('test') {
+          stage('test') {
             steps {
                 sh 'mvn test'
                 
-                
             }
         }
+        
         stage('Deploy') {
             steps {
                 echo 'Deploy'
